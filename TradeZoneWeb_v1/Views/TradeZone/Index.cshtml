@@ -1,0 +1,827 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<body style="height: 100%">
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div></div>
+        </div>
+    </div>
+
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            <nav class="navbar header-navbar pcoded-header" header-theme="theme4" id="topNav">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <a class="mobile-search morphsearch-search" href="#">
+                            <i class="ti-search"></i>
+                        </a>
+                        <a href="/Home/Index">
+                            <!-- <img
+                              class="img-fluid"
+                              src="/default/assets/images/logo.png"
+                              alt="Theme-Logo"
+                            /> -->
+                            TRADE MAP
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+                    <div class="navbar-container container-fluid">
+                        <div>
+                            <ul class="nav-left">
+                                <li>
+                                    <div class="sidebar_toggle">
+                                        <a href="javascript:void(0)"><i class="ti-menu"></i></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="main-search morphsearch-search" href="#">
+                                        <i class="ti-search"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!" onclick="javascript:toggleFullScreen()">
+                                        <i class="ti-fullscreen"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav-right">
+                                <li class="header-notification lng-dropdown">
+                                    <a href="#" id="dropdown-active-item">
+                                        <i class="flag-icon flag-icon-gb m-r-5"></i> English
+                                    </a>
+                                    <ul class="show-notification">
+                                        <li>
+                                            <a href="#" data-lng="en">
+                                                <i class="flag-icon flag-icon-gb m-r-5"></i> English
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-lng="es">
+                                                <i class="flag-icon flag-icon-es m-r-5"></i> Spanish
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-lng="pt">
+                                                <i class="flag-icon flag-icon-pt m-r-5"></i>
+                                                Portuguese
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-lng="fr">
+                                                <i class="flag-icon flag-icon-fr m-r-5"></i> French
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="header-notification">
+                                    <a href="#!">
+                                        <i class="ti-bell"></i>
+                                        <span class="badge">5</span>
+                                    </a>
+                                    <ul class="show-notification">
+                                        <li>
+                                            <h6>Notifications</h6>
+                                            <label class="label label-danger">New</label>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="d-flex align-self-center"
+                                                     src="/default/assets/images/user.png"
+                                                     alt="Generic placeholder image" />
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">@User.Identity.Name</h5>
+                                                    <p class="notification-msg">
+                                                        Lorem ipsum dolor sit amet, consectetuer elit.
+                                                    </p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="d-flex align-self-center"
+                                                     src="/default/assets/images/user.png"
+                                                     alt="Generic placeholder image" />
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">Joseph William</h5>
+                                                    <p class="notification-msg">
+                                                        Lorem ipsum dolor sit amet, consectetuer elit.
+                                                    </p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media">
+                                                <img class="d-flex align-self-center"
+                                                     src="/default/assets/images/user.png"
+                                                     alt="Generic placeholder image" />
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">Sara Soudein</h5>
+                                                    <p class="notification-msg">
+                                                        Lorem ipsum dolor sit amet, consectetuer elit.
+                                                    </p>
+                                                    <span class="notification-time">30 minutes ago</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="user-profile header-notification">
+                                    <a href="#!">
+                                        <img src="/default/assets/images/user.png"
+                                             alt="User-Profile-Image" />
+                                        <span>@User.Identity.Name</span>
+                                        <i class="ti-angle-down"></i>
+                                    </a>
+                                    <ul class="show-notification profile-notification"
+                                        style="z-index: 10">
+                                        <li>
+                                            <a href="#!"> <i class="ti-settings"></i> Settings </a>
+                                        </li>
+                                        <li>
+                                            <a href="user-profile.html">
+                                                <i class="ti-user"></i> Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="email-inbox.html">
+                                                <i class="ti-email"></i> My Messages
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="auth-lock-screen.html">
+                                                <i class="ti-lock"></i> Lock Screen
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/Login/Logout">
+                                                <i class="ti-layout-sidebar-left"></i> Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <div id="morphsearch" class="morphsearch">
+                                <form class="morphsearch-form">
+                                    <input class="morphsearch-input"
+                                           type="search"
+                                           placeholder="Search..." />
+                                    <button class="morphsearch-submit" type="submit">
+                                        Search
+                                    </button>
+                                </form>
+                                <div class="morphsearch-content">
+                                    <div class="dummy-column">
+                                        <h2>People</h2>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img class="round"
+                                                 src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&amp;d=identicon&amp;r=G"
+                                                 alt="Sara Soueidan" />
+                                            <h3>Sara Soueidan</h3>
+                                        </a>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img class="round"
+                                                 src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&amp;d=identicon&amp;r=G"
+                                                 alt="Shaun Dona" />
+                                            <h3>Shaun Dona</h3>
+                                        </a>
+                                    </div>
+                                    <div class="dummy-column">
+                                        <h2>Popular</h2>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img src="/default/assets/images/avatar-1.png"
+                                                 alt="PagePreloadingEffect" />
+                                            <h3>Page Preloading Effect</h3>
+                                        </a>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img src="/default/assets/images/avatar-1.png"
+                                                 alt="DraggableDualViewSlideshow" />
+                                            <h3>Draggable Dual-View Slideshow</h3>
+                                        </a>
+                                    </div>
+                                    <div class="dummy-column">
+                                        <h2>Recent</h2>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img src="/default/assets/images/avatar-1.png"
+                                                 alt="TooltipStylesInspiration" />
+                                            <h3>Tooltip Styles Inspiration</h3>
+                                        </a>
+                                        <a class="dummy-media-object" href="#!">
+                                            <img src="/default/assets/images/avatar-1.png"
+                                                 alt="NotificationStyles" />
+                                            <h3>Notification Styles Inspiration</h3>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <span class="morphsearch-close">
+                                    <i class="icofont icofont-search-alt-1"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="showChat_inner">
+                <div class="media chat-inner-header">
+                    <a class="back_chatBox">
+                        <i class="icofont icofont-rounded-left"></i> Josephin Doe
+                    </a>
+                </div>
+                <div class="media chat-messages">
+                    <a class="media-left photo-table" href="#!">
+                        <img class="media-object img-circle m-t-5"
+                             src="/default/assets/images/avatar-1.png"
+                             alt="Generic placeholder image" />
+                    </a>
+                    <div class="media-body chat-menu-content">
+                        <div class="">
+                            <p class="chat-cont">
+                                I'm just looking around. Will you tell me something about
+                                yourself?
+                            </p>
+                            <p class="chat-time">8:20 a.m.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="media chat-messages">
+                    <div class="media-body chat-menu-reply">
+                        <div class="">
+                            <p class="chat-cont">
+                                I'm just looking around. Will you tell me something about
+                                yourself?
+                            </p>
+                            <p class="chat-time">8:20 a.m.</p>
+                        </div>
+                    </div>
+                    <div class="media-right photo-table">
+                        <a href="#!">
+                            <img class="media-object img-circle m-t-5"
+                                 src="/default/assets/images/avatar-2.png"
+                                 alt="Generic placeholder image" />
+                        </a>
+                    </div>
+                </div>
+                <div class="chat-reply-box p-b-20">
+                    <div class="right-icon-control">
+                        <input type="text"
+                               class="form-control search-text"
+                               placeholder="Share Your Thoughts" />
+                        <div class="form-icon">
+                            <i class="icofont icofont-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar" pcoded-header-position="relative">
+                        <div class="sidebar_toggle">
+                            <a href="#"><i class="icon-close icons"></i></a>
+                        </div>
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-40"
+                                         src="/default/assets/images/user.png"
+                                         alt="User-Profile-Image" />
+                                    <div class="user-details">
+                                        <span>@User.Identity.Name</span>
+                                        <span id="more-details">
+                                            ADMIN<i class="ti-angle-down"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                            <a href="/User/Logout"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="">
+                                    <a href="/Dashboard/Index">
+                                        <span class="pcoded-micon"><i class="ti-home"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon">
+                                            <i class="ti-map-alt"></i>
+                                        </span> 
+                                        <span class="pcoded-mtext"
+                                              data-i18n="nav.page_layout.main">Trade zone</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="active">
+                                            <a href="/TradeZone/Index">
+                                                <span class="pcoded-micon">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.dash.default">Default</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.dash.ecommerce">Add store</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                                <span class="pcoded-mtext" data-i18n="nav.dash.crm">Check</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-crown"></i></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Assets</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                                <span class="pcoded-mtext"
+                                                      data-i18n="nav.dash.ecommerce">Add asset</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="#">
+                                                <span class="pcoded-micon">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                                <span class="pcoded-mtext" data-i18n="nav.dash.crm">View status</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div id="map" style="z-index: 0"></div>
+                                <script type="text/javascript" src="~/default/assets/js/map-init.js"></script>
+                                <!-- Button show location -->
+                                <button class="btn btn-primary btn-icon"
+                                        id="btnShowLocation"
+                                        style="
+                      position: absolute;
+                      bottom: 20px;
+                      left: 20px;
+                      border-top: none !important;
+                    ">
+                                    <i class="icofont icofont-location-arrow"></i>
+                                </button>
+                                <!-- Store list -->
+                                <div class="card"
+                                     style="
+                      position: absolute;
+                      top: 20px;
+                      right: 20px;
+                      width: 30%;
+                      border-top: none !important;
+                    ">
+                                    <div class="card-header">
+                                        <h5>Store</h5>
+                                        <button class="btn btn-primary btn-icon"
+                                                data-toggle="modal"
+                                                data-target="#addLocationModal">
+                                            <i class="icofont icofont-plus"
+                                               style="margin-right: 0"></i>
+                                        </button>
+                                        <div class="card-header-right">
+                                            <i class="icofont icofont-rounded-down icon-up"></i>
+                                        </div>
+                                    </div>
+                                    <div class="card-block" style="display: none">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered"
+                                                   id="example-2">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name</th>
+                                                        <th class="tabledit-toolbar-column">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td class="tabledit-view-mode">
+                                                            <span class="tabledit-span">The coffee house Vo Van Ngan</span><input class="tabledit-input form-control input-sm"
+                                                                                                                                  type="text"
+                                                                                                                                  name="First Name"
+                                                                                                                                  value="Larry
+
+                        "
+                                                                                                                                  style="display: none"
+                                                                                                                                  disabled="" />
+                                                        </td>
+                                                        <td style="white-space: nowrap; width: 1%">
+                                                            <div class="tabledit-toolbar btn-toolbar"
+                                                                 style="text-align: left">
+                                                                <div class="btn-group btn-group-sm"
+                                                                     style="float: none">
+                                                                    <button type="button"
+                                                                            class="tabledit-edit-button btn btn-primary waves-effect waves-light"
+                                                                            style="float: none; margin: 5px">
+                                                                        <span class="icofont icofont-ui-edit"></span>
+                                                                    </button><button type="button"
+                                                                                     class="tabledit-delete-button btn btn-danger waves-effect waves-light"
+                                                                                     style="float: none; margin: 5px">
+                                                                        <span class="icofont icofont-ui-delete"></span>
+                                                                    </button>
+                                                                </div>
+                                                                <button type="button"
+                                                                        class="tabledit-save-button btn btn-sm btn-success"
+                                                                        style="display: none; float: none">
+                                                                    Save
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="tabledit-confirm-button btn btn-sm btn-danger"
+                                                                        style="display: none; float: none">
+                                                                    Confirm
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="tabledit-restore-button btn btn-sm btn-warning"
+                                                                        style="display: none; float: none">
+                                                                    Restore
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade modal-flex"
+                                     id="Modal-Multi"
+                                     tabindex="-1"
+                                     role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <h4 class="modal-title">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <div>
+                                                    <button type="button"
+                                                            class="btn btn-default waves-effect m-t-20"
+                                                            data-toggle="modal"
+                                                            data-target="#meta-Modal">
+                                                        Click Here!
+                                                    </button>
+                                                </div>
+                                                <div class="modal fade"
+                                                     id="meta-Modal"
+                                                     tabindex="-1"
+                                                     role="dialog">
+                                                    <div class="modal-dialog modal-sm" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Modal title</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5>Small Modal</h5>
+                                                                <p>
+                                                                    Lorem ipsum dolor sit amet, consectetur
+                                                                    adipiscing .
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button"
+                                                                        class="btn btn-default waves-effect"
+                                                                        data-dismiss="modal">
+                                                                    Close
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="m-t-10">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                    lorem impus dolorsit.onsectetur adipiscing
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                        class="btn btn-default waves-effect"
+                                                        data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button"
+                                                        class="btn btn-primary waves-effect waves-light">
+                                                    Save changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="addLocationModal">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    Add store's location
+                                                </h5>
+                                                <button type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Store name</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Branch</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="form-control-static">@User.Claims.ToArray()[7].Value</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Category</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select"
+                                                                    class="form-control form-control-default" id="select-state" placeholder="Pick a state...">
+                                                                @foreach (var item in Model)
+                                                                {
+                                                                    <option value="@item.Id">@item.Name</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Address</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Country</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select"
+                                                                    class="form-control form-control-default">
+                                                                <option value="opt1">Vietnam</option>
+                                                                <option value="opt2">Laos</option>
+                                                                <option value="opt3">Korea</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">State/City</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select"
+                                                                    class="form-control form-control-default">
+                                                                <option value="opt1">Ho Chi Minh</option>
+                                                                <option value="opt2">Hanoi</option>
+                                                                <option value="opt3">Da Nang</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">District</label>
+                                                        <div class="col-sm-10">
+                                                            <select name="select"
+                                                                    class="form-control form-control-default">
+                                                                <option value="opt1">1</option>
+                                                                <option value="opt2">2</option>
+                                                                <option value="opt3">3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Map Location</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="row"
+                                                                 style="
+                                    margin-right: 0px;
+                                    margin-left: 0px;
+                                    border: 1px solid;
+                                  "
+                                                                 data-toggle="modal"
+                                                                 href="#pickOnMap">
+                                                                <div class="col-sm-1" style="margin: auto">
+                                                                    <i class="icofont icofont-location-pin"
+                                                                       style="font-size: x-large; color: #1abc9c"></i>
+                                                                </div>
+                                                                <div class="col-sm-10" id="mapLocation">
+                                                                    Choose location on map
+                                                                </div>
+                                                                <div class="col-sm-1" style="margin: auto">
+                                                                    <i class="ion-chevron-right"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button"
+                                                        class="btn btn-secondary"
+                                                        data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary">
+                                                    Save changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="pickOnMap">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Add location</h4>
+                                                <button type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-hidden="true">
+                                                    ×
+                                                </button>
+                                            </div>
+                                            <div class="container"></div>
+                                            <div class="modal-body">
+                                                <div id="mappick" style="z-index: 0"></div>
+                                                <script type="text/javascript"
+                                                        src="~/default/assets/js/mappick-init.js"></script>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" data-dismiss="modal" class="btn">Close</a>
+                                                <a href="#" data-dismiss="modal" class="btn btn-primary" id="confirmLocation">Confirm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <script type="text/javascript"
+                                        src="~/default/assets/js/mappick.js"></script>
+                                <script type="text/javascript" src="~/default/assets/js/map.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--[if lt IE 9]>
+      <div class="ie-warning">
+        <h1>Warning!!</h1>
+        <p>
+          You are using an outdated version of Internet Explorer, please upgrade
+          <br />to any of the following web browsers to access this website.
+        </p>
+        <div class="iew-container">
+          <ul class="iew-download">
+            <li>
+              <a href="http://www.google.com/chrome/">
+                <img src="/default/assets/images/browser/chrome.png" alt="Chrome" />
+                <div>Chrome</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.mozilla.org/en-US/firefox/new/">
+                <img src="/default/assets/images/browser/firefox.png" alt="Firefox" />
+                <div>Firefox</div>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.opera.com">
+                <img src="/default/assets/images/browser/opera.png" alt="Opera" />
+                <div>Opera</div>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.apple.com/safari/">
+                <img src="/default/assets/images/browser/safari.png" alt="Safari" />
+                <div>Safari</div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                <img src="/default/assets/images/browser/ie.png" alt="" />
+                <div>IE (9 & above)</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+      </div>
+    <![endif]-->
+    <script>
+
+    </script>
+    <script type="text/javascript"
+            src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/tether/dist/js/tether.min.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"
+            src="/bower_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <script type="text/javascript"
+            src="/bower_components/modernizr/modernizr.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/modernizr/feature-detects/css-scrollbars.js"></script>
+
+    <script type="text/javascript"
+            src="/bower_components/classie/classie.js"></script>
+
+    <script src="/bower_components/d3/d3.js"></script>
+    <script src="/bower_components/rickshaw/rickshaw.js"></script>
+
+    <script src="/bower_components/raphael/raphael.min.js"></script>
+    <script src="/bower_components/morris.js/morris.js"></script>
+
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/horizontal-timeline/js/main.js"></script>
+
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/amchart/js/amcharts.js"></script>
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/amchart/js/serial.js"></script>
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/amchart/js/light.js"></script>
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/amchart/js/custom-amchart.js"></script>
+
+    <script type="text/javascript"
+            src="/bower_components/i18next/i18next.min.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript"
+            src="/bower_components/jquery-i18next/jquery-i18next.min.js"></script>
+
+    <script type="text/javascript"
+            src="/default/assets/pages/dashboard/custom-dashboard.js"></script>
+    <script type="text/javascript" src="/default/assets/js/script.js"></script>
+
+    <script src="/default/assets/js/pcoded.min.js"></script>
+    <script src="/default/assets/js/demo-12.js"></script>
+    <script src="/default/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/default/assets/js/jquery.mousewheel.min.js"></script>
+</body>

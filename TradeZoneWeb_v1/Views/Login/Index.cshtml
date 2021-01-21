@@ -1,0 +1,100 @@
+﻿@model TradeZoneWeb_v1.Models.GoogleResponseModel
+@{
+
+}
+<body class="fix-menu">
+    <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="login-card card-block auth-body">
+                        <form class="md-float-material">
+                            <div class="text-center">
+                                <img src="/default/assets/images/auth/logo.png" alt="logo.png">
+                            </div>
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-center txt-primary">Sign In</h3>
+                                    </div>
+                                </div>
+
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <div class="btn btn-google-plus m-b-20" onclick="login()">
+                                            <i class="icofont icofont-social-google-plus"></i>Sign in
+                                            with google
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDSxCd191lfP-8cclNT-Bms19ycL6RPd6A",
+            authDomain: "loginkhanhnd.firebaseapp.com",
+            databaseURL: "https://loginkhanhnd.firebaseio.com",
+            projectId: "loginkhanhnd",
+            storageBucket: "loginkhanhnd.appspot.com",
+            messagingSenderId: "320102385552",
+            appId: "1:320102385552:web:9b0cc6e50df6f7a5f95515",
+            measurementId: "G-FNV8FL7NF1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+        async function login() {
+            firebase.auth().signInWithPopup(provider).then(async function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                //var aaa = await firebase.auth.currentUser();
+                const Idtoken = await firebase
+                    .auth()
+                    .currentUser.getIdToken(true);
+                await firebase.auth().onAuthStateChanged((user) => {
+                    if (user) {
+                        console.log(user.uid);
+                        document.getElementById("uid").value = user.uid;
+
+                    }
+                })
+                document.getElementById("token").value = Idtoken;
+                console.log(document.getElementById("uid").value);
+                document.getElementById("myForm").submit();
+
+            }).catch(function (error) {
+                console.log("Error")
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+
+        }
+    </script>
+    <form asp-action="Login" asp-controller="Login" method="post" id="myForm">
+        <input type="hidden" asp-for="Token" name="token" id="token" value="" />
+        <input type="hidden" asp-for="FirebaseUid" name="uid" id="uid" value="" />
+    </form>
+</body>
